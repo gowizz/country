@@ -1,0 +1,26 @@
+name: Country crate CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Format
+      run: cargo fmt
+    - name: Fix
+      run: cargo fix --release --verbose
+    - name: Build
+      run: cargo build --release --verbose
+    - name: Test
+      run: cargo test --release --verbose
