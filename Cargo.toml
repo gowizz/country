@@ -1,0 +1,7 @@
+[package]
+name = "gowiz_country"
+version = "0.0.1"
+repository  = "https://github.com/gowizz/country"
+edition = "2018"
+
+[dependencies]
