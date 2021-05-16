@@ -330,3 +330,31 @@ pub fn find_country_by_iso(raw_iso: &str) -> Country {
         iso3: country.iso3.clone(),
     };
 }
+
+pub fn find_country_by_iso2(iso: Iso2) -> Country {
+    let country = match ISO2_MAP.get(&iso) {
+        None => {
+            panic!("Country not found for {}", iso)
+        }
+        Some(country) => country,
+    };
+    return Country {
+        name: country.name,
+        iso2: country.iso2.clone(),
+        iso3: country.iso3.clone(),
+    };
+}
+pub fn find_country_by_iso3(iso: Iso3) -> Country {
+    let iso2 = Iso2::covert(iso);
+    let country = match ISO2_MAP.get(&iso2) {
+        None => {
+            panic!("Country not found for {}", iso2)
+        }
+        Some(country) => country,
+    };
+    return Country {
+        name: country.name,
+        iso2: country.iso2.clone(),
+        iso3: country.iso3.clone(),
+    };
+}
