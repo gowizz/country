@@ -2,7 +2,7 @@ name: Release country crate
 on:
   push:
     tags:
-      - 0*
+      - "0*"
 env:
   CARGO_TERM_COLOR: always
 jobs:
@@ -10,7 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Login to crates.io
       - run: cargo login ${{ secrets.COUNTRY_TOKEN }}
-      - name: Publish
       - run: cargo publish

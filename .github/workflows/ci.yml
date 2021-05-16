@@ -10,14 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Format
       - run: cargo fmt
       - run: cargo fix --release --verbose
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build
       - run: cargo build --release --verbose
     needs:
       - format
@@ -25,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Test
       - run: cargo test --release --verbose
     needs:
       - build
@@ -33,9 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Login to crates.io
       - run: cargo login ${{ secrets.COUNTRY_TOKEN }}
-      - name: Dry publish
       - run: cargo publish --dry-run
     needs:
       - build
