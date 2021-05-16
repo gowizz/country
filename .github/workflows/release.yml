@@ -1,0 +1,14 @@
+name: Release country crate
+on:
+  push:
+    tags:
+      - "0*"
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cargo login ${{ secrets.COUNTRY_TOKEN }}
+      - run: cargo publish

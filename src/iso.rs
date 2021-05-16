@@ -329,6 +329,7 @@ pub fn find_country_by_iso(raw_iso: &str) -> Country {
         name: country.name,
         iso2: country.iso2.clone(),
         iso3: country.iso3.clone(),
+        top_level_domain: country.top_level_domain.clone(),
     };
 }
 
@@ -343,6 +344,7 @@ pub fn find_country_by_iso2(iso: Iso2) -> Country {
         name: country.name,
         iso2: country.iso2.clone(),
         iso3: country.iso3.clone(),
+        top_level_domain: country.top_level_domain.clone(),
     };
 }
 
@@ -358,5 +360,6 @@ pub fn find_country_by_iso3(iso: Iso3) -> Country {
         name: country.name,
         iso2: country.iso2.clone(),
         iso3: country.iso3.clone(),
+        top_level_domain: country.top_level_domain.clone(),
     };
 }

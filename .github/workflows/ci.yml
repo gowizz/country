@@ -1,26 +1,37 @@
 name: Country crate CI
-
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
-
+    branches:
+      - main
 env:
   CARGO_TERM_COLOR: always
-
 jobs:
-  build:
-
+  format:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-      - name: Format
-        run: cargo fmt
-      - name: Fix
-        run: cargo fix --release --verbose
-      - name: Build
-        run: cargo build --release --verbose
-      - name: Test
-        run: cargo test --release --verbose
+      - run: cargo fmt
+      - run: cargo fix --release --verbose
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cargo build --release --verbose
+    needs:
+      - format
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cargo test --release --verbose
+    needs:
+      - format
+  dry_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cargo login ${{ secrets.COUNTRY_TOKEN }}
+      - run: cargo publish --dry-run
+    needs:
+      - build
+      - test
