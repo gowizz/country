@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use gowiz_country::country::NUMBER_OF_COUNTRIES;
-    use gowiz_country::iso::{Iso2, Iso3};
+    use gowiz_country::models::country::NUMBER_OF_COUNTRIES;
+    use gowiz_country::models::iso::{Iso2, Iso3};
     use gowiz_country::regions;
     use std::borrow::Borrow;
     use std::collections::HashSet;

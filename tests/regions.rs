@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use gowiz_country::country::NUMBER_OF_COUNTRIES;
+    use gowiz_country::models::country::NUMBER_OF_COUNTRIES;
     use gowiz_country::regions;
 
     #[test]
