@@ -1,11 +1,12 @@
 [package]
 name = "gowiz_country"
 license = "MIT"
-description ="A library to get various information about countries"
+description = "A library to get various information about countries"
 homepage = "https://github.com/gowizz/country"
-version = "0.0.1"
-repository  = "https://github.com/gowizz/country"
-readme = "https://github.com/gowizz/country/blob/main/README.md"
+version = "0.0.2"
+repository = "https://github.com/gowizz/country"
+readme = "README.md"
 edition = "2018"
 
 [dependencies]
+lazy_static = "1.4.0"

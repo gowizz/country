@@ -1,4 +1,7 @@
-use crate::iso::{Iso2, Iso3};
+use std::slice::Iter;
+
+use crate::models::iso::{Iso2, Iso3};
+use crate::regions::ALL_COUNTRIES;
 
 pub struct Country {
     pub name: &'static str,
@@ -10,7 +13,7 @@ pub struct Country {
     // capital (str)
 }
 
-pub const NUMBER_OF_COUNTRIES: u8 = 246;
+pub const NUMBER_OF_COUNTRIES: u8 = 251;
 
 impl Country {
     pub const ABW: Country = Country {
@@ -119,6 +122,12 @@ impl Country {
         iso2: Iso2::BJ,
         iso3: Iso3::BEN,
     };
+    pub const BES: Country = Country {
+        name: "Caribbean Netherlands",
+        iso2: Iso2::BQ,
+        iso3: Iso3::BES,
+    };
+
     pub const BFA: Country = Country {
         name: "Burkina Faso",
         iso2: Iso2::BF,
@@ -285,6 +294,11 @@ impl Country {
         iso2: Iso2::CU,
         iso3: Iso3::CUB,
     };
+    pub const CUW: Country = Country {
+        name: "Curaçao",
+        iso2: Iso2::CW,
+        iso3: Iso3::CUW,
+    };
     pub const CXR: Country = Country {
         name: "Christmas Islands",
         iso2: Iso2::CX,
@@ -398,7 +412,7 @@ impl Country {
         iso2: Iso2::FO,
         iso3: Iso3::FRO,
     };
-    pub const FM: Country = Country {
+    pub const FSM: Country = Country {
         name: "Federated States of Micronesia",
         iso2: Iso2::FM,
         iso3: Iso3::FSM,
@@ -409,7 +423,7 @@ impl Country {
         iso2: Iso2::GA,
         iso3: Iso3::GAB,
     };
-    pub const GB: Country = Country {
+    pub const GBR: Country = Country {
         name: "United Kingdom",
         iso2: Iso2::GB,
         iso3: Iso3::GBR,
@@ -479,7 +493,7 @@ impl Country {
         iso2: Iso2::GT,
         iso3: Iso3::GTM,
     };
-    pub const CUF: Country = Country {
+    pub const GUF: Country = Country {
         name: "French Guiana",
         iso2: Iso2::GF,
         iso3: Iso3::GUF,
@@ -740,6 +754,11 @@ impl Country {
         iso2: Iso2::MH,
         iso3: Iso3::MHL,
     };
+    pub const MID: Country = Country {
+        name: "Midway Islands",
+        iso2: Iso2::MI,
+        iso3: Iso3::MID,
+    };
     pub const MKD: Country = Country {
         name: "North Macedonia",
         iso2: Iso2::MK,
@@ -785,7 +804,7 @@ impl Country {
         iso2: Iso2::MR,
         iso3: Iso3::MRT,
     };
-    pub const MS: Country = Country {
+    pub const MSR: Country = Country {
         name: "Montserrat",
         iso2: Iso2::MS,
         iso3: Iso3::MSR,
@@ -802,9 +821,10 @@ impl Country {
     };
     pub const MWI: Country = Country {
         name: "Malawi",
-        iso2: Iso2::MI,
+        iso2: Iso2::MW,
         iso3: Iso3::MWI,
     };
+
     pub const MYS: Country = Country {
         name: "Malaysia",
         iso2: Iso2::MY,
@@ -1051,6 +1071,11 @@ impl Country {
         iso2: Iso2::RS,
         iso3: Iso3::SRB,
     };
+    pub const SSD: Country = Country {
+        name: "South Sudan",
+        iso2: Iso2::SS,
+        iso3: Iso3::SSD,
+    };
     pub const STP: Country = Country {
         name: "Sao Tome and Principe",
         iso2: Iso2::ST,
@@ -1080,6 +1105,11 @@ impl Country {
         name: "Swaziland",
         iso2: Iso2::SZ,
         iso3: Iso3::SWZ,
+    };
+    pub const SXM: Country = Country {
+        name: "Sint Maarten",
+        iso2: Iso2::SX,
+        iso3: Iso3::SXM,
     };
     pub const SYC: Country = Country {
         name: "Seychelles",
@@ -1267,4 +1297,10 @@ impl Country {
         iso2: Iso2::ZW,
         iso3: Iso3::ZWE,
     };
+}
+
+impl Country {
+    pub fn iter() -> Iter<'static, Country> {
+        ALL_COUNTRIES.iter()
+    }
 }
