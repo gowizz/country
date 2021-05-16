@@ -1,7 +1,8 @@
-use crate::models::country::{Country, NUMBER_OF_COUNTRIES};
-use crate::models::iso::{Iso2, Iso3};
 use std::collections::HashMap;
 use std::str::FromStr;
+
+use crate::models::country::{Country, NUMBER_OF_COUNTRIES};
+use crate::models::iso::{Iso2, Iso3};
 
 lazy_static! {
     static ref ISO2_MAP: HashMap<Iso2, Country> = {
@@ -344,6 +345,7 @@ pub fn find_country_by_iso2(iso: Iso2) -> Country {
         iso3: country.iso3.clone(),
     };
 }
+
 pub fn find_country_by_iso3(iso: Iso3) -> Country {
     let iso2 = Iso2::covert(iso);
     let country = match ISO2_MAP.get(&iso2) {
