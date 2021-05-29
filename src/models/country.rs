@@ -3,7 +3,9 @@ use std::slice::Iter;
 use crate::models::iso::{Iso2, Iso3};
 use crate::models::top_level_domain::TopLevelDomain;
 use crate::regions::ALL_COUNTRIES;
+use serde::{Deserialize, Serialize};
 
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Country {
     pub name: &'static str,
     pub iso2: Iso2,

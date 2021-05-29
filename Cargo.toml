@@ -3,7 +3,7 @@ name = "gowiz_country"
 license = "MIT"
 description = "A library to get various information about countries"
 homepage = "https://github.com/gowizz/country"
-version = "0.0.3"
+version = "0.0.4"
 repository = "https://github.com/gowizz/country"
 readme = "README.md"
 edition = "2018"
@@ -14,4 +14,5 @@ exclude = [
 
 [dependencies]
 lazy_static = "1.4.0"
+serde = { version = "1.0.126", features = ["derive"] }
 
