@@ -1,9 +1,9 @@
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::slice::Iter;
 use std::str::FromStr;
-
 // https://data.iana.org/TLD/tlds-alpha-by-domain.txt
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum TopLevelDomain {
     AAA,
     AARP,

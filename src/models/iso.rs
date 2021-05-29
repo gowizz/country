@@ -1,10 +1,10 @@
+use crate::models::country::NUMBER_OF_COUNTRIES;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::slice::Iter;
 use std::str::FromStr;
 
-use crate::models::country::NUMBER_OF_COUNTRIES;
-
-#[derive(PartialEq, Eq, Hash, Clone, Debug)]
+#[derive(PartialEq, Eq, Hash, Clone, Debug, Serialize, Deserialize)]
 pub enum Iso2 {
     AD,
     AE,
@@ -1039,7 +1039,7 @@ impl fmt::Display for Iso2 {
     }
 }
 
-#[derive(PartialEq, Eq, Hash, Clone, Debug)]
+#[derive(PartialEq, Eq, Hash, Clone, Debug, Serialize, Deserialize)]
 pub enum Iso3 {
     ABW,
     AFG,
