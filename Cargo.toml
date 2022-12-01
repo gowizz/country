@@ -14,5 +14,5 @@ exclude = [
 
 [dependencies]
 lazy_static = "1.4.0"
-serde = { version = "1.0.126", features = ["derive"] }
+serde = { version = "1.0.148", features = ["derive"] }
 
